@@ -1,0 +1,97 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+@import 'sass-rem';
+
+.side_bar_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .side_bar {
+    height: 100vh;
+    background-color: $white-basic;
+    overflow-x: hidden;
+    border-right: 1px solid $grey-e1;
+    @include rem(
+      (
+        width: 240px,
+      )
+    );
+    .logo_container {
+      display: flex;
+      height: rem(96px);
+      border-bottom: 1px solid $grey-e1;
+      p {
+        margin: auto;
+      }
+      img {
+        margin: auto;
+        width: 80%;
+      }
+    }
+    .link_wrapper {
+      background-color: transparent;
+      .link_box {
+        gap: rem(10px);
+        height: rem(48px);
+        .m_auto {
+          margin: auto;
+        }
+        .icon_box {
+          width: rem(20px);
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      svg {
+        margin-right: rem(23px);
+      }
+      .link_item {
+        span {
+          @include collapseItem;
+        }
+      }
+      .link_item_active {
+        span {
+          @include collapseItem;
+          color: $background;
+        }
+      }
+    }
+    .link_wrapper_active {
+      @extend .link_wrapper;
+      background-color: $informing-primary;
+    }
+    .collapse {
+      .link_item {
+        span {
+          @include collapseItem;
+        }
+      }
+      .link_item_active {
+        span {
+          @include collapseItem;
+          color: $background;
+        }
+      }
+      svg {
+        visibility: hidden;
+      }
+    }
+    .icon_rotate {
+      transform: rotate(90deg);
+    }
+    .icon_selected {
+      filter: brightness(0) invert(1);
+    }
+  }
+  .copyright {
+    font-size: rem(9px);
+    letter-spacing: 0.001px;
+    color: $gray-30;
+    line-height: 24px;
+    text-align: center;
+  }
+}

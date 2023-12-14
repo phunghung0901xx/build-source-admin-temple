@@ -1,0 +1,296 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "sass-rem";
+
+// Roboto Fonts
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/roboto/Roboto-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/roboto/Roboto-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/roboto/Roboto-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/roboto/Roboto-Black.ttf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/roboto/Roboto-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/roboto/Roboto-Thin.ttf);
+  font-weight: 100;
+}
+
+// Pretendard Fonts
+@font-face {
+  font-family: "Pretendard";
+  src: url(../fonts/pretendard/Pretendard-Thin.otf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(../fonts/pretendard/Pretendard-Light.otf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(../fonts/pretendard/Pretendard-Regular.otf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(../fonts/pretendard/Pretendard-Medium.otf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(../fonts/pretendard/Pretendard-Bold.otf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(../fonts/pretendard/Pretendard-Black.otf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/noto-sans/NotoSans-Thin.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/noto-sans/NotoSans-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/noto-sans/NotoSans-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/noto-sans/NotoSans-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/noto-sans/NotoSans-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/noto-sans/NotoSans-Black.ttf);
+  font-weight: 900;
+}
+
+body {
+  background: $background;
+  background-color: $background !important;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  background: linear-gradient(135deg, #f1f2f3 0%, #f5f6f7 62.03%);
+  @include rem(
+    (
+      padding: 0 32px 32px 32px
+    )
+  );
+}
+
+img {
+  max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100%;
+  body {
+    height: 100%;
+    #root:first-child {
+      height: 100%;
+      .app-section {
+        height: 100%;
+        .content-section {
+          @include scrollbar;
+        }
+      }
+    }
+  }
+}
+
+.MuiButtonBase-root.MuiPickersDay-root.Mui-selected.MuiPickersDay-dayWithMargin {
+  background-color: $informing-primary;
+}
+
+.MuiButtonBase-root.MuiPickersDay-root.Mui-selected.MuiPickersDay-dayWithMargin {
+  &:hover {
+    background-color: $gradient-sky;
+  }
+}
+
+.MuiPickersDay-root.MuiPickersDay-dayWithMargin.MuiPickersDay-today {
+  border: 1px solid #e1e2e5;
+}
+
+.MuiPickersFadeTransitionGroup-root {
+  .MuiPickersCalendarHeader-label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090a0b;
+  }
+}
+
+.MuiPickersArrowSwitcher-root {
+  .MuiPickersArrowSwitcher-button {
+    border-radius: 6px;
+    border: 1px solid #e1e2e5;
+    padding: 3px;
+  }
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root {
+  padding: 0;
+  border: 0;
+
+  // .MuiInputBase-input.MuiOutlinedInput-input {
+  //   border: 0;
+  //   padding: 0;
+  // }
+}
+
+.MuiInputAdornment-root.MuiInputAdornment-positionEnd {
+  .MuiButtonBase-root.MuiIconButton-root {
+    padding: 0;
+  }
+}
+
+.MuiButtonBase-root.MuiCheckbox-root {
+  padding: 0 8px 0 8px;
+}
+
+.MuiPickersCalendarHeader-labelContainer {
+  transform: translateX(16px) !important;
+  margin: auto !important;
+}
+
+.MuiPickersArrowSwitcher-root {
+  .MuiButtonBase-root {
+    &:first-child {
+      position: absolute !important;
+      left: 16px !important;
+    }
+  }
+}
+
+.MuiPickersCalendarHeader-root {
+  // @include rem(
+  //   (
+  //     padding: 0 16px 0 16px !important,
+  //   )
+  // );
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
+.notice-data-custom.quill {
+  width: 100%;
+
+  .ql-snow.ql-toolbar {
+    border-bottom: 1px solid $greyB1;
+    .ql-stroke {
+      fill: none;
+      stroke: $greyB1;
+    }
+
+    .ql-fill {
+      fill: $grey74;
+      stroke: none;
+    }
+
+    .ql-picker {
+      .ql-picker-label {
+        color: $grey74;
+        stroke: $grey74;
+        fill: $grey74;
+      }
+      fill: $grey74;
+      stroke: $grey74;
+      color: $grey74;
+      .ql-picker-item {
+        fill: $grey74;
+        stroke: $grey74;
+        color: $grey74;
+      }
+    }
+  }
+
+  .ql-toolbar {
+    border-top-left-radius: 8px;
+    border: none;
+    border-bottom: 1px;
+    border-top-right-radius: 8px;
+  }
+  .ql-container {
+    min-height: rem(300px);
+    border: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    .ql-editor {
+      height: rem(300px);
+    }
+  }
+}
+
+.toastify-linebreak {
+  white-space: pre-line;
+}

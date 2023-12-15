@@ -36,8 +36,17 @@ const queryClient = new QueryClient({
 })
 
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <BrowserRouter>
+    <NavigateSetter />
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <ToastContainer />
+          <App />
+        </ThemeProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </RecoilRoot>
+  </BrowserRouter>
 )

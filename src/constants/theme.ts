@@ -1,7 +1,7 @@
 // src/theme.ts
 import { createTheme, Shadows } from '@mui/material/styles'
 import { koKR } from '@mui/x-date-pickers/locales'
-import { convertToRem } from '~/'
+import { convertToRem } from '~/utlis/style-utils'
 const theme = createTheme(
   {
     palette: {

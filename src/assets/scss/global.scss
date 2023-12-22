@@ -1,5 +1,5 @@
-@import "./variables.scss";
-@import "./mixins.scss";
+@import "variables.scss";
+@import "mixins.scss";
 @import "sass-rem";
 
 // Roboto Fonts
@@ -127,11 +127,11 @@ body {
 main {
   flex-grow: 1;
   background: linear-gradient(135deg, #f1f2f3 0%, #f5f6f7 62.03%);
-  @include rem(
-    (
-      padding: 0 32px 32px 32px
-    )
-  );
+  // @include rem(
+  //   (
+  //     padding: 0 32px 32px 32px
+  //   )
+  // );
 }
 
 img {
@@ -281,12 +281,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     border-top-right-radius: 8px;
   }
   .ql-container {
-    min-height: rem(300px);
+    // min-height: rem(300px);
     border: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     .ql-editor {
-      height: rem(300px);
+      // height: rem(300px);
     }
   }
 }

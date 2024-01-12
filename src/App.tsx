@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './assets/scss/global.scss'
+ import { useEffect, useState } from 'react'
+ import { useSetRecoilState } from 'recoil'
+ import { getProfile } from '~/services/user.service'
+ import './assets/scss/global.scss'
+ import { userAtom } from './atoms/user'
+ import { editableAtom } from './atoms/editable'
+ import Loading from './components/loading'
+ import Routes from './routes'
+ import TokenService from './services/token.service'
+ import { useLocation } from 'react-router-dom'
 
-function App() {
-  const [count, setCount] = useState(0)
+ function App() {
+   const setUserInfo = useSetRecoilState(userAtom)
+   const setEditable = useSetRecoilState(editableAtom)
+   const user = TokenService.getAuth()
+   const [isLogin, setIsLogin] = useState(false)
+   const location = useLocation()
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+   useEffect(() => {
+     if (user?.accessToken) {
+       onLoadGetAdminProfile()
+       setIsLogin(true)
+     } else {
+       setIsLogin(false)
+     }
+   }, [user?.accessToken])
 
-export default App
+   const onLoadGetAdminProfile = async () => {
+     try {
+       const pro = await getProfile()
+       setUserInfo(pro.data)
+     } catch (e) {
+       console.log(e)
+     }
+   }
+
+   useEffect(() => {
+     setEditable(false)
+   }, [location])
+
+   return (
+     <>
+       <Routes />
+       <Loading />
+     </>
+   )
+ }
+
+ export default App
